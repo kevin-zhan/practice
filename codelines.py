@@ -2,7 +2,14 @@
 import os
 import time 
 import string
+
+#判断记录文件是否存在，若不存在则创建一个记录文件
 filename = "code_record"
+if not os.path.exists(filename):
+	file = open(filename,'w+')
+	file.write("上次记录时间:" + "1995-04-17-00:00" + "\n")
+	file.write("数据格式为:  『日期::::新增代码行数』\n")
+	file.close()
 #获取上次运行此脚本的时间
 file = open(filename,"r")
 pre_time = file.readline()
