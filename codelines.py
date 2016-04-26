@@ -35,7 +35,7 @@ for commit in commits[1:]:
 	pos1 = commit.find(str1)+len(str1)
 	pos2 = commit.find(str2)
 	pos3 = commit.find(str3)
-	if pos1<0:
+	if pos1<len(str1):
 		continue
 	if pos2<0:
 		add_line.append(0)
