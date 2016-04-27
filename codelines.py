@@ -29,8 +29,9 @@ commits = content.split("commit") #用"commit"作关键字分隔每次提交的c
 add_line = []
 sub_line = []
 for commit in commits[1:]:
+	#print commit
 	str1 = "changed, "
-	str2 = " insertions(+)"
+	str2 = " insertion"
 	str3 = " deletions(-)"
 	pos1 = commit.find(str1)+len(str1)
 	pos2 = commit.find(str2)
@@ -42,7 +43,7 @@ for commit in commits[1:]:
 		sub_line.append(string.atoi(commit[pos1:pos3]))
 		continue
 	add_line.append(string.atoi(commit[pos1:pos2]))
-	pos2 = pos2 + len(str2)+2
+	pos2 = commit.find("(+), ")+len("(+), ")
 	if pos3<0:
 		sub_line.append(0)
 		continue
